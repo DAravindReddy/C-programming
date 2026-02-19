@@ -1,0 +1,105 @@
+
+============================Pointers===================================
+pointer:
+It is a variable.
+It is used to store address of another variable.
+Eg?:
+int c = 10;
+int *ptr = &c;
+
+Pointer Rules:
+1. Pointer is an integer:
+-------------------------
+->It stores the data(integral type)
+->size of the address is depends on bitness of the system
+Eg: int *ptr = &x; // ptr holds the integral value(address)
+
+2. Referencing and dereferencing:
+--------------------------------
+->Reference: it is the process of storing the address of variable
+	int *ptr = &ch; //referencing
+->Dereference it is the process of accessing value of the variable
+	*ptr = 10; //dereferencing
+3. pointer means contains/holds:
+-------------------------
+->int *ptr = &x;
+->ptr holds the address of the variable.
+
+4. Pointer type:
+----------------
+->size of the pointer is does not depends on the data type. It depends on system bitness.
+->here fetching of address is difference.
+->when we are dereferncing we will get difference.
+Eg:
+int x = 10;
+int *ptr = &x;
+char *cptr = &x;
+printf("%d", *ptr); // 10
+printf("%d", *cptr);// 0
+
+==>Endianess system:
+*How data is going to store in memory
+*There are two different endianess system
+	1. Big
+	2. Little
+1.Big:					2.littel
+-Data store from Msb to lsb		-Data store from lsb to msb
+-lowest address msb byte is stored	-lowest address lsb byte is stored
+Eg: to find the system is little endian or big endian
+int main()
+{
+	int c = 0x12ABCDEF;
+	char *ptr = &c
+	if(*ptr == 0x12)
+		printf("Big");
+	else
+		printf("Little");
+	return 0;
+}
+
+5. pointer Arithmetic
+---------------------
+->if you are performing arithmetic with pointer and a integer or char we need to apply pointer Arithmetic rule.
+Eg:		100 1  2  3		
+int x = 10;//	00 00 00 10
+int *ptr = &x;
+printf("%d", (ptr+2)); // 108
+
+
+-------------------------------------------------------------------------
+Pass by value			|		pass by reference	|
+-------------------------------------------------------------------------
+1. It is just a copy. What ever	|1.Whatever changes made on formal arg	|
+changes you made on formal arg	|they will reflect to actual org.	|
+they won't reflect to actual arg|					|
+				|					|
+2. Only one argument we can     |2. We can return/modify more than one	|
+return/modify                   |					|
+-------------------------------------------------------------------------                                
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
