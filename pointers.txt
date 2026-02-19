@@ -77,13 +77,42 @@ they won't reflect to actual arg|					|
 return/modify                   |					|
 -------------------------------------------------------------------------                                
 
+6. Null pointer:
+----------------
+Eg: 
+int *ptr;	//wild pointer=>here output: undefined behaviour
+*ptr = 10;//undefined behaviour
 
-  
+=>in the above case if you waqnt to avoid the undefined behaviour you need to use NULL pointer
+Eg:
+int *ptr = NULL;
+*ptr =10;//segemntation fault
+
+Applications;
+=> Used in string when failed then it will return to NULL pointer
+=>linked list
+=>in dynamic memory allocations
+ 
+7. void pointer:
+----------------
+pointer pointing to anything
+=>Generic pointer
+=>Incomplete pointer
+	1. Dereferencing is not possible
 
 
 
-
-
+void swap(void *ptr1, void *ptr2, int size)
+{
+	char *temp;
+	for(i = 0; i < size; i++){
+		temp = *(char *)ptr1
+		*(char *)ptr1 = *(char *)ptr2;
+		*(char *)ptr2 = temp;
+		ptr1++;
+		ptr2++;
+	}
+}
 
 
 

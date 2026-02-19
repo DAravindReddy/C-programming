@@ -1,0 +1,43 @@
+
+===============================================================================
+User defined data type
+1. structure
+2. union
+3. typedef
+4. enum
+
+1. Structure:
+It is a UDT. It allocates memory continuesly. We can allocate with different members.
+Syntax
+struct structure
+{
+	int num;
+	char ch;
+	char name[20];
+};
+
+int main()
+{
+	struct structure s1 = {10, 'a', "Aravind"};//memory created when variable created
+	or
+	s1.id = 10;
+	s1.ch = 'a';
+	strcpy(s1.name, "Aravind");
+
+	printf("%d", s1.id);
+	printf("%s", s1.name);
+
+
+	//structure pointer
+	struct student *sptr = &s1;
+	scanf('%d", &s1.id);
+	scanf("%s", &s1.name);
+	
+
+	//dereference sptr
+	*sptr=>*(&s1)=>s1
+	sptr->id	or (*sptr).id
+	sptr->name	or (*sptr).name 
+
+	//oder of declaration
+
