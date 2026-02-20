@@ -41,3 +41,93 @@ int main()
 
 	//oder of declaration
 
+important points to note
+1. oder of declaration
+2. size of data bus
+3. max size element/member
+
+
+
+2.Bitfield structure
+====================
+struct bitfield
+{
+	unsigned char ch1: 4;
+}
+
+
+union:
+-----
+union is same like structure. but difference in memory. In structures memory allocates continuesly including pading. But in union highest member of size will allocates the memory. It is sharable to another member.
+
+Eg:
+union Test
+{
+	int temp;
+	float h;
+}var;
+here 4bytes of memory is allocated, And it is shareable.
+
+Explain difference between typedef and macros
+---------------------------------------------------------------------------------------
+	typedef				|		Macros
+---------------------------------------------------------------------------------------
+1. another name of a structure or any   |1. Using macro alse we can give alternate
+datatype.				|name for the basic data type.
+Eg typedef struct st;			|Eg. #define st struct
+2. when coming to pointers concept type |2. Not prefered
+-def is prefered.			|Eg: #define m_ptr int *
+Eg:					|m_ptr ptr1, ptr2;
+typedef int* t_ptr			|ptr1=>pointer
+t_ptr ptr1, ptr2;			|ptr2=>integer
+ptr1=>pointer				|
+ptr2=>pointer				|
+					|
+3. typedef are compilied at complier	|3. macros are processed at preprocessor stage
+stage					|
+----------------------------------------------------------------------------------------
+
+typedef struct student
+{
+int id;
+char ch;
+}Sstud;
+int main()
+{
+Sstud st;
+
+
+Volatile keyword:
+----------------
+
+
+#optimization:
+for code optimization by compiler "-------'gcc -O3 filename.c'---------"
+-O1=>low level of optimization
+-O2=>middle level of optimization
+-O3=>High level of optimization
+
+if use volatile keyword in particular variable then the comiler does not skip that statement when you applied optimization by compiler.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
