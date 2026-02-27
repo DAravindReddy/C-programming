@@ -1,0 +1,127 @@
+
+File I/O:
+
+->File is a stream of characters or sequence of bytes.
+->Files are used for presistent or permanent storage.
+->In C accessing a file is not strightforward. There are separate functions in stdio.h header file.
+->by using stdio function we can read and write content from a file.
+
+File structure:
+--------------
+
+typedef struct
+{
+	int fd; //file discriptor
+	unsigned char *buf; //Buffer
+	size_t size;	//size of the file
+	size_t pos; 	//current position in the file
+}FILE;
+
+
+To open a file.
+->To open a file fopen funtion will be used and prototype of that function: FILE *fptr(const char *path, const char *mode);
+======>Where->*path- name of a file or file along path enclosed with double quotes. 
+Eg: FILE *fptr("f1.txt", Mode);
+
+======>*mode->mode of file, which can {w, r, a, r+, a+, w+}
+read("r"):
+->if file exists, then it will open the file
+->else returns NULL
+->if success- returned pointer will point to the first character of the file points to beginging of the file.
+
+code:
+#include<stdio.h>
+
+int main()
+{
+	FILE *fptr = fopen("f1.txt", "r");
+	if(fptr == NULL)
+	{
+		printf("Failed to open a file\n");
+		return 1;
+	}	
+	printf("File opened successfully\n");
+	fclose(fptr);
+	return 0;
+}
+
+
+write("w"):
+->if file exists, then it will open the file and can write info
+->else it will create a new file in given path.
+->if success-
+		File pointer is pointing to first character of the file
+		If already file contains the information then write mode will replace the previous content with new content
+
+Code:
+int main()
+{
+	FILE *fptr = fopen("f1.txt", "w");
+	if(fptr == NULL)
+	{
+		printf("Error: Failed to open a file\n");
+		return 1;
+	}
+	printf("File opened successfuly in write mode\n");
+	fclose(fptr);
+	return 0;
+} 
+
+append("a"):
+->if file exists, then it will open the file and add the info
+->else it will create a new file in given path.
+=>if success:
+	-File pointer will points to last char of the file.
+	-If file contains content already, then the append mode will concat or add the previous content with new.
+
+fclose():
+->It is used to close a file ponter.
+
+How to read a content from a file?
+->to read content from a file- fgetc is used.
+->fgetc will fetch a charcater from file
+->to chech the end of the file. feof function will be helpful. =>feof(filepointer)
+->fputc(ch, stdout)-> it will print a charcter on stdout.
+
+To read and give content in stdout
+while((ch = fgetc(fptr)) != EOF)
+{
+	printf("%d", ch); or fputc(ch, stdout);
+}
+or
+int fputc(int char, File *stream);
+
+
+To write a content in a file
+fprintf(fptr, "Hello World!\n");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

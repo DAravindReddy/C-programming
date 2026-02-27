@@ -1,0 +1,2 @@
+Welcome to write operation
+Hello welcome to append mode
