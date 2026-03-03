@@ -1,0 +1,106 @@
+
+Storage class:
+
+scope of a variable
+lifetime of a variable
+
+
+Variables:
+1.Local variable: which are declared inside a function.
+2.Global variable: which are declared outside of all function.
+
+1. Local Variable:
+=>Auto:
+	1.Lifetime: Inside block
+	2.scope: Inside block
+	3.data creates in stack segment
+	4.Eg:	int main()
+		{
+			auto int x; // x contains gv
+			auto int x = 10; //using auto storage class
+			int y = 20;// by default this will take as auto storage class
+		}
+=>Register:
+	1.Lifetime: block
+	2.scope: block
+	3.data will creates in cpu reg/stack.
+	4.Eg: int main()
+		{
+			register int y; y contains gv
+			register int x = 10; //if cpu accepts req of this proccess then memory for this variable creates in cpu register
+							otherwise it will creates in stack segment.
+			scanf("%d", &x);//it will show as compiler error, because of we cannot access '&' cpu reg address.
+		}
+=>Local static:
+	1.Lifetime:throughtout program or file
+	2.scope: block
+	3.Data will creates in data segment
+	Eg:	int main()
+		{	
+			static int x; //here x declared as x = 0. it is creates in bss unintialized part of datasegment
+			static int y = 10; y creates in data segment in intalized part
+		}
+2. Global variable:
+=>static global variable:
+	1. Lifetime : Throughout the program
+	2. Scope : Throughout the file
+	3. Data will creates in data segment(intialized or unintialized)
+	Eg: static int x;
+		int main()
+		{
+			x = 20;
+			printf("%d", x);
+		}			
+
+=>Extern global variable:
+	1.lifetime: Throught the program
+	2.scope: Throughout the program
+	3.data will create in data segment
+	Eg:
+		extern int x;
+		int main()
+		{
+			foo(x);
+		}	
+		foo.c
+		extern int x = 10;
+		foo(int x)
+		{
+			pf("%d", x);
+		}
+
+
+Linkages:
+1. internal linkage
+2. external linkage
+
+1. static int x as a global variable have internal linkage
+2. normal global variable have external linkage
+3. for extern global variable have both external and internal linkage.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
